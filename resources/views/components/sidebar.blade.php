@@ -1,20 +1,22 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">GOY CLINIC</a>
+            <a href="{{ route('home') }}">GOY CLINIC</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">GOY</a>
+            <a href="{{ route('home') }}">GOY</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item dropdown">
-                <a href="" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Users</span></a>
-                <ul class="dropdown-menu">
-                    <li class=''>
-                        <a class="nav-link" href="{{ route('users.index') }}">All User</a>
-                    </li>
-                </ul>
+            <li class="{{ Request::is('home') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('home') }}"><i class="fa fa-home">
+                    </i> <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="{{ Request::is('users') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('users.index') }}"><i class="fa fa-users">
+                    </i> <span>Users</span>
+                </a>
             </li>
         </ul>
     </aside>
